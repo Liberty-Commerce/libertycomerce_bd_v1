@@ -1,10 +1,9 @@
 <?php 
-    header('Content-Type: application/json; chartset=utf-8');
+    header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
     
-    $json = json_encode([
-        "response" => '200',
-        "mensaje" => 'Recibiendo respuesta del backend de LibertyCommerce :)'
+    define('URL', $_SERVER['REQUEST_URI']);
+    define('METHOD', $_SERVER['REQUEST_METHOD']);
 
-    ]);
-
-    echo $json;
+    require 'config/DataBase.php';
+    require 'routes/route.php';
